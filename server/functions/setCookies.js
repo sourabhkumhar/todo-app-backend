@@ -7,7 +7,7 @@ const setCookie = (res, name, value, maxAge, options) => {
       httpOnly: options?.httpOnly !== false,
       secure: process.env.NODE_ENV !== "development",
       maxAge: maxAge || 60 * 60 * 24 * 7,
-      sameSite: options?.sameSite || "strict",
+      sameSite: options?.sameSite || "none",
       path: "/",
       domain:
         process.env.NODE_ENV === "development"
