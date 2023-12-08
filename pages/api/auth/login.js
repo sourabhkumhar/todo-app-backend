@@ -1,4 +1,3 @@
-import setCookie from "@/server/functions/setCookies";
 import connectDB from "@/server/middleware/connectDB";
 import cors from "@/server/middleware/cors";
 import User from "@/server/model/User";
@@ -34,10 +33,10 @@ const handler = async (req, res) => {
         id: user._id,
       };
 
-      setCookie(res, "token", jwtSign(data));
       response(res, 200, "Succsess! You logged in.", {
         data,
         isLoggedIn: true,
+        token: jwtSign(data),
       });
     } else {
       response(res, 401, "Invalid Credentials!");

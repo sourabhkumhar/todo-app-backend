@@ -4,18 +4,16 @@ import { allowedMethods, jwtVerify, response } from "next-lesscode/functions";
 
 const handler = async (req, res) => {
   if (allowedMethods(req, res)) return;
-
-  const cookies = req.headers?.cookies || req.cookies;
-  const user = cookies["token"];
+  const { token } = req.query;
 
   try {
-    if (!user) {
+    if (!token) {
       response(res, 200, "", {
         isLoggedIn: false,
         data: null,
       });
     } else {
-      const data = jwtVerify(user);
+      const data = jwtVerify(token);
       response(res, 200, "", {
         isLoggedIn: true,
         data,
