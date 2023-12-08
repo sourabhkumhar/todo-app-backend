@@ -1,5 +1,5 @@
 import { response } from "next-lesscode/functions";
-const allowedOriginsProduction = "https://webisite.vercel.app";
+const allowedOriginsProduction = "https://todo-frontend-webapp.vercel.app";
 
 const allowedOriginsDevelopment = "http://localhost:3000";
 
