@@ -10,7 +10,9 @@ const setCookie = (res, name, value, maxAge, options) => {
       sameSite: options?.sameSite || "strict",
       path: "/",
       domain:
-        process.env.NODE_ENV === "development" ? "localhost" : ".vercel.app",
+        process.env.NODE_ENV === "development"
+          ? "localhost"
+          : "todo-frontend-webapp.vercel.app",
     })
   );
 };
